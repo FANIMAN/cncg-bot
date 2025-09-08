@@ -1,0 +1,307 @@
+telegram:
+  bot_token: ""
+  channel_id: ""
+  parse_mode: "MarkdownV2"
+
+scheduler:
+  cron_spec: "* * * * *" # 09:00 daily
+  batch_size: 10 # max posts per run
+
+filters:
+  max_age_days: 21
+  min_score: 0.6
+
+keywords:
+  positive:
+    [
+      "kubernetes",
+      "cncf",
+      "k8s",
+      "envoy",
+      "istio",
+      "linkerd",
+      "prometheus",
+      "opentelemetry",
+      "otel",
+      "ebpf",
+      "wasm",
+      "argo",
+      "flux",
+      "helm",
+      "cilium",
+      "kyverno",
+      "trivy",
+      "sigstore",
+      "telemetry",
+      "observability",
+      "supply chain",
+      "slsa",
+      "containerd",
+      "cri-o",
+    ]
+  negative: ["marketing webinar", "press release", "sponsored"]
+
+sources:
+  - name: "CNCF Blog"
+    type: "rss"
+    weight: 1.0
+    url: "https://www.cncf.io/feed/"
+    tags: ["news", "foundation", "projects"]
+  - name: "Kubernetes Blog"
+    type: "rss"
+    weight: 1.0
+    url: "https://kubernetes.io/feed.xml"
+    tags: ["kubernetes", "sig"]
+  - name: "Prometheus Blog"
+    type: "rss"
+    weight: 0.9
+    url: "https://prometheus.io/blog/index.xml"
+    tags: ["prometheus", "observability"]
+  - name: "OpenTelemetry Blog"
+    type: "rss"
+    weight: 0.9
+    url: "https://opentelemetry.io/feed.xml"
+    tags: ["otel", "observability"]
+  - name: "Envoy Proxy"
+    type: "rss"
+    weight: 0.8
+    url: "https://www.envoyproxy.io/feed.xml"
+    tags: ["envoy", "proxy"]
+  - name: "CNCF Jobs/Opportunities (Community)"
+    type: "rss"
+    weight: 0.7
+    url: "https://community.cncf.io/feed/"
+    tags: ["events", "opportunities"]
+  - name: "Cadence Workflow"
+    type: "rss"
+    weight: 0.7
+    url: "https://cadenceworkflow.io/blog/atom.xml"
+    tags: ["automation", "configuration"]
+  - name: "DevStream"
+    type: "rss"
+    weight: 0.7
+    url: "https://blog.devstream.io/index.xml"
+    tags: ["devstream"]
+
+  - name: "Kairos Blog"
+    type: "rss"
+    weight: 0.75
+    url: "https://kairos.io/blog/index.xml"
+    tags: ["kairos", "edge", "linux"]
+
+  - name: "KCL Blog"
+    type: "rss"
+    weight: 0.72
+    url: "https://www.kcl-lang.io/blog/rss.xml"
+    tags: ["kcl", "policy", "language"]
+
+  - name: "Kratix Blog"
+    type: "rss"
+    weight: 0.73
+    url: "https://docs.kratix.io/blog/rss.xml"
+    tags: ["kratix", "platform"]
+
+  - name: "KubeDL Blog"
+    type: "rss"
+    weight: 0.74
+    url: "https://kubedl.io/blog/rss.xml"
+    tags: ["kubedl", "ml", "kubernetes"]
+
+  - name: "KubeEdge Blog"
+    type: "rss"
+    weight: 0.82
+    url: "https://kubeedge.io/blog/rss.xml"
+    tags: ["kubeedge", "edge", "iot"]
+
+  - name: "Konstruct Blog"
+    type: "rss"
+    weight: 0.71
+    url: "https://blog.konstruct.io/rss/"
+    tags: ["konstruct", "infrastructure"]
+
+  - name: "KusionStack Blog"
+    type: "rss"
+    weight: 0.72
+    url: "https://medium.com/feed/@kusionstack"
+    tags: ["kusionstack", "iac"]
+
+  - name: "ManageIQ Blog"
+    type: "rss"
+    weight: 0.77
+    url: "https://www.manageiq.org/feed.xml"
+    tags: ["manageiq", "automation"]
+
+  - name: "OpenStack Blog"
+    type: "rss"
+    weight: 0.92
+    url: "https://www.openstack.org/blog/feed/"
+    tags: ["openstack", "cloud"]
+
+  - name: "OpenTofu Blog"
+    type: "rss"
+    weight: 0.86
+    url: "https://opentofu.org/blog/rss.xml"
+    tags: ["opentofu", "terraform", "iac"]
+
+  - name: "OpenYurt Blog"
+    type: "rss"
+    weight: 0.78
+    url: "https://openyurt.io/blog/rss.xml"
+    tags: ["openyurt", "edge"]
+
+  - name: "Pulumi Blog"
+    type: "rss"
+    weight: 0.91
+    url: "https://www.pulumi.com/blog/rss.xml"
+    tags: ["pulumi", "iac", "cloud"]
+
+  - name: "Salt Project Blog"
+    type: "rss"
+    weight: 0.87
+    url: "https://saltproject.io/blog/index.xml"
+    tags: ["saltstack", "automation"]
+
+  - name: "Shifu Technical Blogs"
+    type: "rss"
+    weight: 0.71
+    url: "https://shifu.dev/technical-blogs/rss.xml"
+    tags: ["shifu", "edge"]
+
+  - name: "Shifu News"
+    type: "rss"
+    weight: 0.71
+    url: "https://shifu.dev/news/rss.xml"
+    tags: ["shifu", "news"]
+
+  - name: "HashiCorp Blog"
+    type: "rss"
+    weight: 0.98
+    url: "https://www.hashicorp.com/blog/feed.xml"
+    tags: ["hashicorp", "terraform", "vault"]
+
+  - name: "Updatecli Blog"
+    type: "rss"
+    weight: 0.72
+    url: "https://www.updatecli.io/blog/index.xml"
+    tags: ["updatecli", "automation"]
+
+  - name: "Dragonfly (D7y) Blog"
+    type: "rss"
+    weight: 0.76
+    url: "https://d7y.io/blog/rss.xml"
+    tags: ["dragonfly", "distribution"]
+
+  - name: "Cerbos Blog"
+    type: "rss"
+    weight: 0.74
+    url: "https://www.cerbos.dev/rss"
+    tags: ["cerbos", "authorization"]
+
+  - name: "Confidential Containers Blog"
+    type: "rss"
+    weight: 0.77
+    url: "https://confidentialcontainers.org/blog/index.xml"
+    tags: ["confidential-containers", "security"]
+
+  - name: "Falco Blog"
+    type: "rss"
+    weight: 0.88
+    url: "https://falco.org/blog/feed.xml"
+    tags: ["falco", "security"]
+
+  - name: "in-toto Blog"
+    type: "rss"
+    weight: 0.76
+    url: "https://in-toto.io/blog/index.xml"
+    tags: ["in-toto", "supply-chain"]
+
+  - name: "Keycloak Blog"
+    type: "rss"
+    weight: 0.89
+    url: "https://www.keycloak.org/rss.xml"
+    tags: ["keycloak", "identity"]
+
+  - name: "KubeArmor Blog"
+    type: "rss"
+    weight: 0.77
+    url: "https://kubearmor.io/blog/rss.xml"
+    tags: ["kubearmor", "security"]
+
+  - name: "Kubescape New Feed"
+    type: "rss"
+    weight: 0.82
+    url: "https://kubescape.io/feed_rss_created.xml"
+    tags: ["kubescape", "security"]
+
+  - name: "Kubescape Updates"
+    type: "rss"
+    weight: 0.82
+    url: "https://kubescape.io/feed_rss_updated.xml"
+    tags: ["kubescape", "security"]
+
+  - name: "Kubewarden Blog"
+    type: "rss"
+    weight: 0.8
+    url: "https://www.kubewarden.io/blog/index.xml"
+    tags: ["kubewarden", "policy"]
+
+  - name: "Kyverno Blog"
+    type: "rss"
+    weight: 0.87
+    url: "https://kyverno.io/blog/index.xml"
+    tags: ["kyverno", "policy"]
+
+  - name: "AccuKnox Blog"
+    type: "rss"
+    weight: 0.76
+    url: "https://accuknox.com/feed"
+    tags: ["accuknox", "security"]
+
+  - name: "Open Policy Containers Blog"
+    type: "rss"
+    weight: 0.72
+    url: "https://openpolicycontainers.com/blog/rss.xml"
+    tags: ["policy", "containers"]
+
+  - name: "OpenFGA Blog"
+    type: "rss"
+    weight: 0.73
+    url: "https://openfga.dev/blog/rss.xml"
+    tags: ["openfga", "authorization"]
+
+  - name: "Paladin Cloud Blog"
+    type: "rss"
+    weight: 0.74
+    url: "https://paladincloud.io/feed/"
+    tags: ["paladincloud", "security"]
+
+  - name: "Paralus Blog"
+    type: "rss"
+    weight: 0.73
+    url: "https://www.paralus.io/blog/rss.xml"
+    tags: ["paralus", "kubernetes", "networking"]
+# https://ratify.dev/blog/rss.xml
+# https://www.securecodebox.io/blog/rss.xml
+# https://blog.sigstore.dev/index.xml
+# https://sonobuoy.io/blog/feed.xml
+# https://www.stackrox.io/rss.xml
+# https://goteleport.com/blog/rss.xml
+# https://www.varmor.org/blog/rss.xml
+# https://pinniped.dev/blog/index.xml
+# https://juicefs.com/en/blog/latest/feed/
+# https://blog.min.io/rss/
+# https://moosefs.com/feed/
+# https://oras.land/blog/rss.xml
+# https://blog.rook.io/feed
+# https://velero.io/blog/index.xml
+# https://medium.com/feed/cncf-vineyard
+# https://layer5.io/blog/feed.xml
+# https://layer5.io/news/feed.xml
+# https://deislabs.io/posts/index.xml
+# https://kuasar.io/blog/index.xml
+# https://podman-desktop.io/blog/rss.xml
+# https://blog.podman.io/feed/
+# https://antrea.io/blog/feed.xml
+# https://cilium.io/blog/rss.xml
+# https://www.kube-ovn.io/news/rss.xml
+# https://www.redhat.com/en/rss/blog
